@@ -1,0 +1,12 @@
+<!-- <h2>{{sensor1.path}}</h2>
+<div><span>id: </span>{{sensor1.id}}</div>
+<div><span>lastEditDate: </span>{{sensor1.lastEditDate}}</div>
+<div><span>measure: </span>{{sensor1.measure}}</div> -->
+
+<h2>My Sensors</h2>
+
+<ul class="Sensors">
+  <li *ngFor="let sensor of sensors">
+      <span>{{sensor.id}} {{sensor.measure}} {{sensor.lastEditDate}}</span>
+  </li>
+</ul>
