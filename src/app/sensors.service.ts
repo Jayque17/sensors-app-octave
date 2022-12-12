@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 
-export interface Sensor {
-  id: string;
-  temperature: number;
-}
-
 @Injectable({
   providedIn: 'root'
 })

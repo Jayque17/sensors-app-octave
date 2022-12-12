@@ -12,16 +12,16 @@ export class AppComponent {
 
   }
   title = 'sensors-app-octave';
+  sorted_response:any;
   public doTheThing() {
-    this.sensorsService.get() .subscribe(
-      (response) => {                           //next() callback
+    this.sensorsService.get().subscribe(
+      (response: any) => {                           //next() callback
         console.log('response received')
-      },
-      (error) => {                              //error() callback
-        console.error('Request failed with error')
-      },
-      () => {                                   //complete() callback
-        console.error('Request completed')      //This is actually not needed 
+        console.log(response);
+        this.sorted_response = response.body.filter((item: any) => 
+          item.elems.environment !== undefined).map((item: any) => 
+          ({deviceId : item.id, timestamp : item.creationDate, temperature : item.elems.environment.temperature, key: item.id}));
+          console.log(this.sorted_response);
       })
   }
 }
